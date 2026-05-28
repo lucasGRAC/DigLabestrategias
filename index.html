@@ -9,198 +9,104 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#07090F;
-  --surface:#0D1320;
-  --surface2:#131A2C;
-  --surface3:#1A2238;
-  --border:rgba(59,130,246,0.12);
-  --border2:rgba(59,130,246,0.22);
-  --accent:#3B82F6;
-  --accent-light:#60A5FA;
-  --accent-dim:rgba(59,130,246,0.1);
-  --green:#22D3A5;
-  --green-dim:rgba(34,211,165,0.1);
-  --amber:#FBBF24;
-  --text:#EEF2FF;
-  --text-muted:#7A8FAD;
-  --text-dim:#374460;
-  --radius:14px;
+  --bg:#07090F;--surface:#0D1320;--surface2:#131A2C;--surface3:#1A2238;
+  --border:rgba(59,130,246,0.12);--border2:rgba(59,130,246,0.22);
+  --accent:#3B82F6;--accent-light:#60A5FA;--accent-dim:rgba(59,130,246,0.1);
+  --green:#22D3A5;--green-dim:rgba(34,211,165,0.1);--amber:#FBBF24;
+  --text:#EEF2FF;--text-muted:#7A8FAD;--text-dim:#374460;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
-
-/* grid bg */
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0}
-
 .page{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 24px 80px}
-
-/* HEADER */
 .header{display:flex;align-items:center;justify-content:space-between;padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:48px}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:32px;height:32px;background:var(--accent-dim);border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:var(--accent-light)}
 .logo-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.01em}
 .header-tag{font-size:11px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
-
-/* HERO */
 .hero{margin-bottom:44px}
 .hero-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;color:var(--accent-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
 .hero-label::before{content:'';width:18px;height:1px;background:var(--accent)}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:12px}
 .hero h1 em{font-style:normal;color:var(--accent-light)}
 .hero p{font-size:15px;color:var(--text-muted);max-width:520px;line-height:1.75}
-
-/* CARD */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:16px}
 .card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
 .card-sub{font-size:13px;color:var(--text-dim);margin-bottom:28px}
-
-/* FORM */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group{display:flex;flex-direction:column;gap:7px}
 .form-group.full{grid-column:span 2}
 label{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase}
-input,select,textarea{
-  background:var(--surface2);
-  border:1px solid var(--border);
-  border-radius:10px;
-  color:var(--text);
-  font-family:'DM Sans',sans-serif;
-  font-size:14px;
-  padding:11px 14px;
-  transition:border-color 0.2s,background 0.2s;
-  outline:none;
-  width:100%;
-}
-input:focus,select:focus,textarea:focus{border-color:var(--accent);background:var(--surface3)}
-input::placeholder,textarea::placeholder{color:var(--text-dim)}
+input,select{background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:11px 14px;transition:border-color 0.2s;outline:none;width:100%}
+input:focus,select:focus{border-color:var(--accent);background:var(--surface3)}
+input::placeholder{color:var(--text-dim)}
 select option{background:var(--surface2)}
-
-/* DROPZONE */
-.dropzone{
-  border:1.5px dashed var(--border2);
-  border-radius:12px;
-  padding:28px 20px;
-  text-align:center;
-  cursor:pointer;
-  transition:all 0.2s;
-  background:var(--surface2);
-  position:relative;
-}
+.dropzone{border:1.5px dashed var(--border2);border-radius:12px;padding:28px 20px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--surface2);position:relative}
 .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
 .dropzone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
 .dz-icon{font-size:28px;margin-bottom:8px}
-.dz-text{font-size:13px;color:var(--text-muted);line-height:1.5}
+.dz-text{font-size:13px;color:var(--text-muted)}
 .dz-hint{font-size:11px;color:var(--text-dim);margin-top:4px}
 .file-list{margin-top:12px;display:flex;flex-direction:column;gap:6px}
-.file-item{
-  display:flex;align-items:center;gap:10px;
-  background:var(--surface3);border:1px solid var(--border);
-  border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text-muted);
-}
+.file-item{display:flex;align-items:center;gap:10px;background:var(--surface3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text-muted)}
 .file-item .file-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .file-item .file-remove{cursor:pointer;color:var(--text-dim);font-size:16px;line-height:1;flex-shrink:0}
-.file-item .file-remove:hover{color:var(--text)}
 .file-icon{font-size:16px;flex-shrink:0}
-
-/* BUTTON */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
-  padding:13px 28px;border-radius:100px;border:none;cursor:pointer;
-  transition:all 0.2s;letter-spacing:0.01em;
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:13px 28px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s}
 .btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#2563EB;transform:translateY(-1px)}
-.btn-primary:active{transform:translateY(0)}
-.btn-primary:disabled{background:var(--surface3);color:var(--text-dim);cursor:not-allowed;transform:none}
-.btn-secondary{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border)}
-.btn-secondary:hover{border-color:var(--border2);color:var(--text)}
+.btn-primary:hover{background:#2563EB}
+.btn-primary:disabled{background:var(--surface3);color:var(--text-dim);cursor:not-allowed}
 .btn-green{background:rgba(34,211,165,0.15);color:var(--green);border:1px solid rgba(34,211,165,0.25)}
-.btn-green:hover{background:rgba(34,211,165,0.22)}
+.btn-secondary{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border)}
 .btn-full{width:100%;margin-top:24px}
-
-/* SPINNER */
 .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* PROGRESS */
 .progress-wrap{margin-top:20px;display:none}
 .progress-wrap.show{display:block}
 .progress-bar-track{height:3px;background:var(--surface3);border-radius:100px;overflow:hidden;margin-bottom:10px}
 .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:100px;width:0%;transition:width 0.4s ease}
 .progress-label{font-size:12px;color:var(--text-dim);text-align:center}
-
-/* DIVIDER */
-.divider{height:1px;background:var(--border);margin:32px 0}
-
-/* REGEN SECTION */
 .regen-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px}
 .regen-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
 .regen-sub{font-size:13px;color:var(--text-dim);margin-bottom:24px}
 .client-select-wrap{display:flex;gap:10px;align-items:flex-end}
 .client-select-wrap select{flex:1}
-.clients-empty{font-size:13px;color:var(--text-dim);font-style:italic;padding:12px 0}
-
-/* OUTPUT SECTION */
 #output-section{display:none;margin-top:32px}
 #output-section.show{display:block;animation:fadeIn 0.4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
 .output-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .output-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff}
 .output-meta{font-size:12px;color:var(--text-dim);margin-top:3px}
 .output-actions{display:flex;gap:10px}
-
-/* SLIDES */
 .slides-container{display:flex;flex-direction:column;gap:16px}
 .slide{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;position:relative;overflow:hidden}
-.slide-num{position:absolute;top:20px;right:24px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--text-dim);letter-spacing:0.08em}
+.slide-num{position:absolute;top:20px;right:24px;font-size:11px;font-weight:700;color:var(--text-dim)}
 .slide-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px}
 .slide-tag.blue{background:var(--accent-dim);color:var(--accent-light)}
 .slide-tag.green{background:var(--green-dim);color:var(--green)}
 .slide-tag.amber{background:rgba(251,191,36,0.1);color:var(--amber)}
 .slide-tag.purple{background:rgba(167,139,250,0.1);color:#A78BFA}
 .slide-tag.coral{background:rgba(248,113,113,0.1);color:#F87171}
-.slide h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:16px;line-height:1.3}
-.slide-content{font-size:14px;color:var(--text-muted);line-height:1.75}
+.slide h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:16px}
+.slide-content{font-size:14px;color:var(--text-muted);line-height:1.75;outline:none}
 .slide-content strong{color:var(--text);font-weight:500}
 .slide-content ul{list-style:none;margin-top:10px}
 .slide-content ul li{padding:7px 0;border-top:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
 .slide-content ul li:first-child{border-top:none}
 .slide-content ul li::before{content:'→';color:var(--accent);font-size:12px;margin-top:3px;flex-shrink:0}
-.slide-content .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
 .metric-box{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:center}
 .metric-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--accent-light);margin-bottom:2px}
 .metric-lbl{font-size:11px;color:var(--text-dim);line-height:1.3}
-
-/* EDITABLE */
-.slide-content[contenteditable=true]{outline:none;cursor:text}
-.slide-content[contenteditable=true]:focus{background:rgba(59,130,246,0.03);border-radius:8px;padding:8px;margin:-8px}
-
-/* COPY BTN */
-.slide-copy{position:absolute;bottom:16px;right:16px;background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);font-size:11px;padding:5px 12px;border-radius:100px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
-.slide-copy:hover{border-color:var(--border2);color:var(--text)}
-
-/* ERROR */
+.slide-copy{position:absolute;bottom:16px;right:16px;background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);font-size:11px;padding:5px 12px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif}
 .error-box{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:12px;padding:16px 20px;font-size:13px;color:#FCA5A5;margin-top:16px;display:none}
 .error-box.show{display:block}
-
-/* TOAST */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid var(--border2);color:var(--text);font-size:13px;padding:10px 22px;border-radius:100px;opacity:0;transition:all 0.3s;z-index:999;pointer-events:none;white-space:nowrap}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid var(--border2);color:var(--text);font-size:13px;padding:10px 22px;border-radius:100px;opacity:0;transition:all 0.3s;z-index:999;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-@media(max-width:600px){
-  .form-grid{grid-template-columns:1fr}
-  .form-group.full{grid-column:span 1}
-  .client-select-wrap{flex-direction:column}
-  .output-header{flex-direction:column;gap:12px;align-items:flex-start}
-}
 </style>
 </head>
 <body>
 <div class="page">
-
-  <!-- HEADER -->
   <header class="header">
     <div class="logo">
       <div class="logo-mark">D</div>
@@ -208,26 +114,19 @@ select option{background:var(--surface2)}
     </div>
     <span class="header-tag">Paid Media · Meta Ads</span>
   </header>
-
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-label">Generador de Estrategias</div>
     <h1>Estrategia para <em>Meta Ads</em></h1>
     <p>Subí los documentos del cliente (Brief + Venta Cerrada + Kickoff) y la IA extrae los datos, arma la estrategia y te la deja editable.</p>
   </div>
-
-  <!-- MAIN FORM -->
   <div class="card">
     <div class="card-title">Nuevo cliente</div>
     <div class="card-sub">Completá los datos y adjuntá los documentos del cliente.</div>
-
     <div class="form-grid">
-
       <div class="form-group">
         <label>Nombre del cliente *</label>
-        <input type="text" id="client-name" placeholder="Ej: Clínica Del Sol" />
+        <input type="text" id="client-name" placeholder="Ej: Clínica Del Sol">
       </div>
-
       <div class="form-group">
         <label>Rubro</label>
         <select id="client-rubro">
@@ -235,65 +134,50 @@ select option{background:var(--surface2)}
           <option value="estetica">Medicina estética</option>
           <option value="cirugia">Cirugía plástica</option>
           <option value="implantes">Implantología</option>
-          <option value="otro">Otro (clínica genérica)</option>
+          <option value="otro">Otro</option>
         </select>
       </div>
-
       <div class="form-group">
         <label>Fecha</label>
-        <input type="date" id="client-date" />
+        <input type="date" id="client-date">
       </div>
-
       <div class="form-group">
         <label>Cotización USD → ARS</label>
-        <input type="number" id="usd-ars" placeholder="Ej: 1250" />
+        <input type="number" id="usd-ars" placeholder="Ej: 1250">
       </div>
-
       <div class="form-group full">
         <label>Link de guiones (opcional)</label>
-        <input type="url" id="script-link" placeholder="https://drive.google.com/..." />
+        <input type="url" id="script-link" placeholder="https://drive.google.com/...">
       </div>
-
-      <!-- DOCS DROPZONE -->
       <div class="form-group full">
         <label>Documentos del cliente *</label>
         <div class="dropzone" id="docs-dropzone">
-          <input type="file" id="docs-input" multiple accept=".pdf,.docx,.doc,.txt" />
+          <input type="file" id="docs-input" multiple accept=".pdf,.docx,.doc,.txt">
           <div class="dz-icon">📄</div>
           <div class="dz-text">Arrastrá los docs acá o hacé click</div>
           <div class="dz-hint">PDF, DOCX, TXT (Brief + Venta Cerrada + Kickoff)</div>
         </div>
         <div class="file-list" id="docs-list"></div>
       </div>
-
-      <!-- LOGO DROPZONE -->
       <div class="form-group full">
         <label>Logo del cliente (opcional)</label>
         <div class="dropzone" id="logo-dropzone" style="padding:20px">
-          <input type="file" id="logo-input" accept=".png,.jpg,.jpeg,.svg,.webp" />
+          <input type="file" id="logo-input" accept=".png,.jpg,.jpeg,.svg,.webp">
           <div class="dz-icon">🎨</div>
           <div class="dz-text">PNG, JPG, SVG</div>
           <div class="dz-hint">Fondo transparente o blanco</div>
         </div>
         <div class="file-list" id="logo-list"></div>
       </div>
-
     </div>
-
     <div class="error-box" id="error-box"></div>
-
     <div class="progress-wrap" id="progress-wrap">
       <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
       <div class="progress-label" id="progress-label">Procesando documentos...</div>
     </div>
-
-    <button class="btn btn-primary btn-full" id="generate-btn" onclick="generateStrategy()">
-      ✦ Generar estrategia
-    </button>
+    <button class="btn btn-primary btn-full" id="generate-btn" onclick="generateStrategy()">✦ Generar estrategia</button>
   </div>
-
-  <!-- REGENERATE SECTION -->
-  <div class="regen-card" id="regen-card">
+  <div class="regen-card">
     <div class="regen-title">Regenerar una estrategia anterior</div>
     <div class="regen-sub">Útil cuando querés probar un cambio sin volver a subir los docs.</div>
     <div class="client-select-wrap">
@@ -301,8 +185,6 @@ select option{background:var(--surface2)}
       <button class="btn btn-green" onclick="regenerateStrategy()">↺ Regenerar</button>
     </div>
   </div>
-
-  <!-- OUTPUT -->
   <div id="output-section">
     <div class="output-header">
       <div>
@@ -311,510 +193,147 @@ select option{background:var(--surface2)}
       </div>
       <div class="output-actions">
         <button class="btn btn-secondary" onclick="copyAll()">⎘ Copiar todo</button>
-        <button class="btn btn-primary" onclick="printStrategy()">↓ Exportar</button>
+        <button class="btn btn-primary" onclick="window.print()">↓ Exportar</button>
       </div>
     </div>
     <div class="slides-container" id="slides-container"></div>
   </div>
-
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script>
-// ─── STATE ─────────────────────────────────────────────
-const state = { docs: [], logo: null };
-
-// ─── INIT ──────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  // set today as default date
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('client-date').value = today;
-
-  // load past clients from storage
+const state={docs:[],logo:null};
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('client-date').value=new Date().toISOString().split('T')[0];
   loadPastClients();
-
-  // drag/drop for docs
-  setupDropzone('docs-dropzone', 'docs-input', 'docs-list', false);
-  setupDropzone('logo-dropzone', 'logo-input', 'logo-list', true);
+  setupDropzone('docs-dropzone','docs-input','docs-list',false);
+  setupDropzone('logo-dropzone','logo-input','logo-list',true);
 });
-
-// ─── DROPZONE ──────────────────────────────────────────
-function setupDropzone(zoneId, inputId, listId, single) {
-  const zone = document.getElementById(zoneId);
-  const input = document.getElementById(inputId);
-
-  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
-  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-  zone.addEventListener('drop', e => {
-    e.preventDefault();
-    zone.classList.remove('dragover');
-    const files = Array.from(e.dataTransfer.files);
-    handleFiles(files, listId, single);
-  });
-
-  input.addEventListener('change', () => {
-    const files = Array.from(input.files);
-    handleFiles(files, listId, single);
-    input.value = '';
-  });
+function setupDropzone(zoneId,inputId,listId,single){
+  const zone=document.getElementById(zoneId);
+  const input=document.getElementById(inputId);
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragover')});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('dragover'));
+  zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('dragover');handleFiles(Array.from(e.dataTransfer.files),listId,single)});
+  input.addEventListener('change',()=>{handleFiles(Array.from(input.files),listId,single);input.value=''});
 }
-
-function handleFiles(files, listId, single) {
-  if (single) {
-    state.logo = files[0] || null;
-    renderFileList([state.logo].filter(Boolean), listId, true);
-  } else {
-    files.forEach(f => {
-      if (!state.docs.find(d => d.name === f.name)) state.docs.push(f);
-    });
-    renderFileList(state.docs, listId, false);
-  }
+function handleFiles(files,listId,single){
+  if(single){state.logo=files[0]||null;renderFileList([state.logo].filter(Boolean),listId,true)}
+  else{files.forEach(f=>{if(!state.docs.find(d=>d.name===f.name))state.docs.push(f)});renderFileList(state.docs,listId,false)}
 }
-
-function renderFileList(files, listId, single) {
-  const list = document.getElementById(listId);
-  list.innerHTML = files.map((f, i) => `
-    <div class="file-item">
-      <span class="file-icon">${getFileIcon(f.name)}</span>
-      <span class="file-name">${f.name}</span>
-      <span class="file-size" style="font-size:11px;color:var(--text-dim);flex-shrink:0">${formatSize(f.size)}</span>
-      <span class="file-remove" onclick="removeFile(${i},'${listId}',${single})">×</span>
-    </div>
-  `).join('');
+function renderFileList(files,listId,single){
+  document.getElementById(listId).innerHTML=files.map((f,i)=>`<div class="file-item"><span class="file-icon">${f.name.match(/\.pdf$/i)?'📕':f.name.match(/\.docx?$/i)?'📘':'📄'}</span><span class="file-name">${f.name}</span><span style="font-size:11px;color:var(--text-dim);flex-shrink:0">${(f.size/1024).toFixed(0)}KB</span><span class="file-remove" onclick="removeFile(${i},'${listId}',${single})">×</span></div>`).join('');
 }
-
-function removeFile(i, listId, single) {
-  if (single) { state.logo = null; document.getElementById(listId).innerHTML = ''; }
-  else { state.docs.splice(i, 1); renderFileList(state.docs, listId, false); }
+function removeFile(i,listId,single){
+  if(single){state.logo=null;document.getElementById(listId).innerHTML=''}
+  else{state.docs.splice(i,1);renderFileList(state.docs,listId,false)}
 }
-
-function getFileIcon(name) {
-  if (name.match(/\.pdf$/i)) return '📕';
-  if (name.match(/\.docx?$/i)) return '📘';
-  if (name.match(/\.txt$/i)) return '📄';
-  return '📎';
+async function readFileText(file){
+  if(file.name.match(/\.txt$/i))return new Promise(r=>{const fr=new FileReader();fr.onload=e=>r(e.target.result);fr.readAsText(file)});
+  if(file.name.match(/\.docx?$/i))return new Promise((r,j)=>{const fr=new FileReader();fr.onload=async e=>{try{const res=await mammoth.extractRawText({arrayBuffer:e.target.result});r(res.value)}catch(err){j(err)}};fr.readAsArrayBuffer(file)});
+  return new Promise(r=>{const fr=new FileReader();fr.onload=e=>r({type:'pdf',base64:e.target.result.split(',')[1],name:file.name});fr.readAsDataURL(file)});
 }
-function formatSize(b) {
-  if (b < 1024) return b+'B';
-  if (b < 1024*1024) return (b/1024).toFixed(0)+'KB';
-  return (b/1024/1024).toFixed(1)+'MB';
-}
-
-// ─── READ FILE ─────────────────────────────────────────
-async function readFileText(file) {
-  if (file.name.match(/\.txt$/i)) {
-    return new Promise(res => {
-      const r = new FileReader();
-      r.onload = e => res(e.target.result);
-      r.readAsText(file);
-    });
-  }
-  if (file.name.match(/\.docx?$/i)) {
-    return new Promise((res, rej) => {
-      const r = new FileReader();
-      r.onload = async e => {
-        try {
-          const result = await mammoth.extractRawText({ arrayBuffer: e.target.result });
-          res(result.value);
-        } catch(err) { rej(err); }
-      };
-      r.readAsArrayBuffer(file);
-    });
-  }
-  // PDF — convert to base64 for API
-  return new Promise(res => {
-    const r = new FileReader();
-    r.onload = e => res({ type: 'pdf', base64: e.target.result.split(',')[1], name: file.name });
-    r.readAsDataURL(file);
-  });
-}
-
-async function fileToBase64(file) {
-  return new Promise(res => {
-    const r = new FileReader();
-    r.onload = e => res(e.target.result.split(',')[1]);
-    r.readAsDataURL(file);
-  });
-}
-
-// ─── PROGRESS ──────────────────────────────────────────
-function setProgress(pct, label) {
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = label;
-}
-
-// ─── GENERATE ──────────────────────────────────────────
-async function generateStrategy() {
-  const name = document.getElementById('client-name').value.trim();
-  const rubro = document.getElementById('client-rubro').value;
-  const date = document.getElementById('client-date').value;
-  const usd = document.getElementById('usd-ars').value;
-  const scriptLink = document.getElementById('script-link').value.trim();
-
-  // Validation
-  if (!name) { showError('Ingresá el nombre del cliente.'); return; }
-  if (state.docs.length === 0) { showError('Subí al menos un documento del cliente.'); return; }
-
-  hideError();
-  setGenerating(true);
-
-  const pw = document.getElementById('progress-wrap');
-  pw.classList.add('show');
-  setProgress(10, 'Leyendo documentos...');
-
-  try {
-    // Read all docs
-    const docContents = [];
-    const apiMessages = [];
-
-    for (const file of state.docs) {
-      const content = await readFileText(file);
-      if (typeof content === 'string') {
-        docContents.push(`\n\n--- DOCUMENTO: ${file.name} ---\n${content}`);
-      } else {
-        // PDF as base64
-        docContents.push(`\n\n--- DOCUMENTO PDF: ${content.name} ---\n[Adjunto como PDF]`);
-        apiMessages.push({
-          type: 'document',
-          source: { type: 'base64', media_type: 'application/pdf', data: content.base64 }
-        });
-      }
+function setProgress(pct,label){document.getElementById('progress-fill').style.width=pct+'%';document.getElementById('progress-label').textContent=label}
+async function generateStrategy(){
+  const name=document.getElementById('client-name').value.trim();
+  const rubro=document.getElementById('client-rubro').value;
+  const date=document.getElementById('client-date').value;
+  const usd=document.getElementById('usd-ars').value;
+  const scriptLink=document.getElementById('script-link').value.trim();
+  if(!name){showError('Ingresá el nombre del cliente.');return}
+  if(!state.docs.length){showError('Subí al menos un documento del cliente.');return}
+  hideError();setGenerating(true);
+  document.getElementById('progress-wrap').classList.add('show');
+  setProgress(10,'Leyendo documentos...');
+  try{
+    const docContents=[];const apiMessages=[];
+    for(const file of state.docs){
+      const content=await readFileText(file);
+      if(typeof content==='string')docContents.push(`\n\n--- DOCUMENTO: ${file.name} ---\n${content}`);
+      else{docContents.push(`\n\n--- PDF: ${content.name} ---`);apiMessages.push({type:'document',source:{type:'base64',media_type:'application/pdf',data:content.base64}})}
     }
-
-    setProgress(30, 'Analizando información del cliente...');
-
-    // Build the user message content
-    const textContent = `
-Sos un estratega senior de Paid Media especializado en Meta Ads para clínicas de salud en Argentina.
-
-Generá una ESTRATEGIA COMPLETA para Meta Ads basándote en los documentos del cliente.
-
-DATOS DEL CLIENTE:
-- Nombre: ${name}
-- Rubro: ${getRubroLabel(rubro)}
-- Fecha de estrategia: ${date || 'Hoy'}
-- Cotización USD/ARS: ${usd ? '$' + usd : 'No especificada'}
-- Link de guiones: ${scriptLink || 'No especificado'}
-
-DOCUMENTOS DEL CLIENTE:
-${docContents.join('')}
-
-Generá la estrategia en formato JSON con la siguiente estructura EXACTA (respondé SOLO con el JSON, sin texto extra, sin backticks):
-
-{
-  "resumen": {
-    "cliente": "nombre del cliente",
-    "rubro": "rubro",
-    "objetivo": "objetivo principal de la campaña extraído de los docs",
-    "presupuesto_mensual": "presupuesto mensual en ARS",
-    "presupuesto_diario": "presupuesto diario estimado",
-    "duracion": "duración recomendada",
-    "kpi_principal": "KPI principal"
-  },
-  "audiencias": [
-    { "nombre": "nombre del segmento", "descripcion": "descripción detallada", "edad": "rango etario", "intereses": ["interés 1", "interés 2", "interés 3"], "tipo": "fría/retargeting/lookalike" }
-  ],
-  "estructura_campana": [
-    { "nombre": "nombre del conjunto", "objetivo": "objetivo de Meta", "audiencia": "audiencia objetivo", "presupuesto": "presupuesto asignado", "formato": "formato de anuncio" }
-  ],
-  "angulos_copy": [
-    { "angulo": "nombre del ángulo", "ejemplo_titulo": "ejemplo de titular", "ejemplo_texto": "ejemplo de texto primario", "cta": "CTA recomendado" }
-  ],
-  "kpis": [
-    { "metrica": "nombre de métrica", "objetivo": "valor objetivo", "frecuencia": "frecuencia de revisión" }
-  ],
-  "recomendaciones": ["recomendación 1", "recomendación 2", "recomendación 3", "recomendación 4"],
-  "proximos_pasos": ["paso 1", "paso 2", "paso 3", "paso 4"]
-}
-
-Basate EXCLUSIVAMENTE en los documentos del cliente para extraer datos reales (presupuesto, servicios, zona, público). Si hay datos que no están en los docs, inferí razonablemente según el rubro.
-`;
-
-    const messageContent = [
-      ...apiMessages,
-      { type: 'text', text: textContent }
-    ];
-
-    setProgress(50, 'Consultando a Claude...');
-
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
-        messages: [{ role: 'user', content: messageContent }]
-      })
+    setProgress(30,'Analizando información del cliente...');
+    const textContent=`Sos un estratega senior de Paid Media en Meta Ads para clínicas en Argentina.\n\nCliente: ${name}\nRubro: ${rubro}\nFecha: ${date}\nUSD/ARS: ${usd||'no especificado'}\nLink guiones: ${scriptLink||'no especificado'}\n\nDOCUMENTOS:\n${docContents.join('')}\n\nGenerá la estrategia. Respondé SOLO con JSON, sin backticks:\n{"resumen":{"objetivo":"...","presupuesto_mensual":"...","presupuesto_diario":"...","duracion":"...","kpi_principal":"..."},"audiencias":[{"nombre":"...","descripcion":"...","edad":"...","intereses":["..."],"tipo":"..."}],"estructura_campana":[{"nombre":"...","objetivo":"...","audiencia":"...","presupuesto":"...","formato":"..."}],"angulos_copy":[{"angulo":"...","ejemplo_titulo":"...","ejemplo_texto":"...","cta":"..."}],"kpis":[{"metrica":"...","objetivo":"...","frecuencia":"..."}],"recomendaciones":["..."],"proximos_pasos":["..."]}`;
+    setProgress(50,'Consultando IA...');
+    const response=await fetch('/api/generate',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,messages:[{role:'user',content:[...apiMessages,{type:'text',text:textContent}]}]})
     });
-
-    setProgress(80, 'Construyendo estrategia...');
-
-    const data = await response.json();
-    if (data.error) throw new Error(data.error.message);
-
-    const raw = data.content.map(b => b.text || '').join('');
-    const clean = raw.replace(/```json|```/g, '').trim();
-
-    let strategy;
-    try { strategy = JSON.parse(clean); }
-    catch(e) { throw new Error('Error al parsear la respuesta de la IA. Intentá de nuevo.'); }
-
-    setProgress(95, 'Renderizando slides...');
-
-    // Save to storage
-    await saveClient(name, rubro, date, strategy);
-
-    setProgress(100, 'Listo');
-    setTimeout(() => pw.classList.remove('show'), 800);
-
-    renderOutput(strategy, name, date, scriptLink);
-    await loadPastClients();
-
-  } catch(err) {
+    setProgress(80,'Construyendo estrategia...');
+    const data=await response.json();
+    if(data.error)throw new Error(data.error.message);
+    const raw=data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
+    let strategy;try{strategy=JSON.parse(raw)}catch(e){throw new Error('Error al parsear la respuesta. Intentá de nuevo.')}
+    setProgress(100,'¡Listo!');
+    setTimeout(()=>document.getElementById('progress-wrap').classList.remove('show'),800);
+    renderOutput(strategy,name,date,scriptLink);
+  }catch(err){
     document.getElementById('progress-wrap').classList.remove('show');
-    showError(err.message || 'Ocurrió un error. Revisá tu conexión e intentá de nuevo.');
+    showError(err.message||'Ocurrió un error. Intentá de nuevo.');
   }
-
   setGenerating(false);
 }
-
-// ─── REGENERATE ────────────────────────────────────────
-async function regenerateStrategy() {
-  const select = document.getElementById('past-clients-select');
-  const key = select.value;
-  if (!key) return;
-
-  try {
-    const result = await window.storage.get(key);
-    if (!result) { showToast('No se encontraron datos para ese cliente.'); return; }
-    const saved = JSON.parse(result.value);
-    renderOutput(saved.strategy, saved.name, saved.date, saved.scriptLink || '');
+async function regenerateStrategy(){
+  const key=document.getElementById('past-clients-select').value;
+  if(!key)return;
+  try{
+    const r=await window.storage.get(key);
+    if(!r)return;
+    const d=JSON.parse(r.value);
+    renderOutput(d.strategy,d.name,d.date,d.scriptLink||'');
     showToast('Estrategia cargada.');
-  } catch(e) {
-    showToast('No se pudo cargar el cliente.');
-  }
+  }catch(e){showToast('No se pudo cargar el cliente.')}
 }
-
-// ─── STORAGE ───────────────────────────────────────────
-async function saveClient(name, rubro, date, strategy) {
-  const key = 'client:' + name.toLowerCase().replace(/\s+/g, '_') + ':' + Date.now();
-  try {
-    await window.storage.set(key, JSON.stringify({ name, rubro, date, strategy, savedAt: new Date().toISOString() }));
-  } catch(e) { /* non-critical */ }
+async function saveClient(name,rubro,date,strategy){
+  const key='client:'+name.toLowerCase().replace(/\s+/g,'_')+':'+Date.now();
+  try{await window.storage.set(key,JSON.stringify({name,rubro,date,strategy}))}catch(e){}
 }
-
-async function loadPastClients() {
-  const select = document.getElementById('past-clients-select');
-  try {
-    const result = await window.storage.list('client:');
-    const keys = result?.keys || [];
-    if (keys.length === 0) {
-      select.innerHTML = '<option value="">Sin estrategias guardadas</option>';
-      return;
-    }
-    const options = await Promise.all(keys.map(async k => {
-      try {
-        const r = await window.storage.get(k);
-        const d = JSON.parse(r.value);
-        return `<option value="${k}">${d.name} — ${d.date || 'Sin fecha'}</option>`;
-      } catch { return ''; }
-    }));
-    select.innerHTML = '<option value="">Seleccionar cliente...</option>' + options.filter(Boolean).join('');
-  } catch(e) {
-    select.innerHTML = '<option value="">Sin estrategias guardadas</option>';
-  }
+async function loadPastClients(){
+  const select=document.getElementById('past-clients-select');
+  try{
+    const r=await window.storage.list('client:');
+    const keys=r?.keys||[];
+    if(!keys.length){select.innerHTML='<option value="">Sin estrategias guardadas</option>';return}
+    const opts=await Promise.all(keys.map(async k=>{try{const r2=await window.storage.get(k);const d=JSON.parse(r2.value);return`<option value="${k}">${d.name} — ${d.date||'sin fecha'}</option>`}catch{return''}}));
+    select.innerHTML='<option value="">Seleccionar cliente...</option>'+opts.filter(Boolean).join('');
+  }catch(e){select.innerHTML='<option value="">Sin estrategias guardadas</option>'}
 }
-
-// ─── RENDER OUTPUT ─────────────────────────────────────
-function renderOutput(s, name, date, scriptLink) {
-  const out = document.getElementById('output-section');
-  document.getElementById('output-title').textContent = `Estrategia · ${name}`;
-  document.getElementById('output-meta').textContent = `Generada el ${date || new Date().toLocaleDateString('es-AR')} · Meta Ads`;
-
-  const container = document.getElementById('slides-container');
-  container.innerHTML = '';
-
-  const slides = [
-    buildSlide1(s.resumen, name, scriptLink),
-    buildSlide2(s.audiencias),
-    buildSlide3(s.estructura_campana),
-    buildSlide4(s.angulos_copy),
-    buildSlide5(s.kpis),
-    buildSlide6(s.recomendaciones, s.proximos_pasos),
-  ];
-
-  slides.forEach((html, i) => {
-    const div = document.createElement('div');
-    div.innerHTML = html;
-    container.appendChild(div.firstElementChild);
-  });
-
-  out.classList.add('show');
-  out.style.display = 'block';
-  out.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function renderOutput(s,name,date,scriptLink){
+  document.getElementById('output-title').textContent=`Estrategia · ${name}`;
+  document.getElementById('output-meta').textContent=`Generada el ${date} · Meta Ads`;
+  const container=document.getElementById('slides-container');container.innerHTML='';
+  [buildSlide1(s.resumen,name,scriptLink),buildSlide2(s.audiencias),buildSlide3(s.estructura_campana),buildSlide4(s.angulos_copy),buildSlide5(s.kpis),buildSlide6(s.recomendaciones,s.proximos_pasos)].forEach(html=>{const d=document.createElement('div');d.innerHTML=html;container.appendChild(d.firstElementChild)});
+  const out=document.getElementById('output-section');out.classList.add('show');out.style.display='block';out.scrollIntoView({behavior:'smooth',block:'start'});
 }
-
-function buildSlide1(r, name, scriptLink) {
-  const metrics = `
-    <div class="metric-row">
-      <div class="metric-box"><div class="metric-val">${r.presupuesto_diario || '—'}</div><div class="metric-lbl">Presupuesto diario</div></div>
-      <div class="metric-box"><div class="metric-val">${r.presupuesto_mensual || '—'}</div><div class="metric-lbl">Presupuesto mensual</div></div>
-      <div class="metric-box"><div class="metric-val">${r.duracion || '—'}</div><div class="metric-lbl">Duración</div></div>
-    </div>`;
-  const scriptBtn = scriptLink ? `<br><br><a href="${scriptLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-dim);border:1px solid rgba(34,211,165,0.25);color:var(--green);font-size:12px;font-weight:500;padding:7px 16px;border-radius:100px;text-decoration:none;">📝 Ver guiones</a>` : '';
-  return `<div class="slide">
-    <span class="slide-num">01 / 06</span>
-    <span class="slide-tag blue">Resumen ejecutivo</span>
-    <h2>${name} — Visión general</h2>
-    <div class="slide-content" contenteditable="true">
-      <strong>Objetivo:</strong> ${r.objetivo || '—'}<br>
-      <strong>KPI principal:</strong> ${r.kpi_principal || '—'}
-      ${metrics}${scriptBtn}
-    </div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide1(r,name,scriptLink){
+  const btn=scriptLink?`<br><br><a href="${scriptLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-dim);border:1px solid rgba(34,211,165,0.25);color:var(--green);font-size:12px;padding:7px 16px;border-radius:100px;text-decoration:none;">📝 Ver guiones</a>`:'';
+  return`<div class="slide"><span class="slide-num">01/06</span><span class="slide-tag blue">Resumen ejecutivo</span><h2>${name} — Visión general</h2><div class="slide-content" contenteditable="true"><strong>Objetivo:</strong> ${r?.objetivo||'—'}<br><strong>KPI principal:</strong> ${r?.kpi_principal||'—'}<div class="metric-row"><div class="metric-box"><div class="metric-val">${r?.presupuesto_diario||'—'}</div><div class="metric-lbl">Presupuesto diario</div></div><div class="metric-box"><div class="metric-val">${r?.presupuesto_mensual||'—'}</div><div class="metric-lbl">Presupuesto mensual</div></div><div class="metric-box"><div class="metric-val">${r?.duracion||'—'}</div><div class="metric-lbl">Duración</div></div></div>${btn}</div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-function buildSlide2(audiencias) {
-  const list = (audiencias || []).map(a => `
-    <li>
-      <div>
-        <strong>${a.nombre}</strong> · <span style="font-size:12px;color:var(--text-dim)">${a.tipo || ''} · ${a.edad || ''}</span><br>
-        ${a.descripcion || ''}<br>
-        <span style="font-size:12px;color:var(--text-dim)">Intereses: ${(a.intereses||[]).join(', ')}</span>
-      </div>
-    </li>`).join('');
-  return `<div class="slide">
-    <span class="slide-num">02 / 06</span>
-    <span class="slide-tag green">Audiencias</span>
-    <h2>Segmentación de audiencias</h2>
-    <div class="slide-content" contenteditable="true"><ul>${list}</ul></div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide2(a){
+  const li=(a||[]).map(x=>`<li><div><strong>${x.nombre}</strong> <span style="font-size:12px;color:var(--text-dim)">${x.tipo||''} · ${x.edad||''}</span><br>${x.descripcion||''}<br><span style="font-size:12px;color:var(--text-dim)">Intereses: ${(x.intereses||[]).join(', ')}</span></div></li>`).join('');
+  return`<div class="slide"><span class="slide-num">02/06</span><span class="slide-tag green">Audiencias</span><h2>Segmentación</h2><div class="slide-content" contenteditable="true"><ul>${li}</ul></div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-function buildSlide3(estructura) {
-  const list = (estructura || []).map(e => `
-    <li>
-      <div>
-        <strong>${e.nombre}</strong><br>
-        Objetivo: ${e.objetivo || '—'} · Audiencia: ${e.audiencia || '—'}<br>
-        <span style="font-size:12px;color:var(--text-dim)">Presupuesto: ${e.presupuesto || '—'} · Formato: ${e.formato || '—'}</span>
-      </div>
-    </li>`).join('');
-  return `<div class="slide">
-    <span class="slide-num">03 / 06</span>
-    <span class="slide-tag amber">Estructura de campaña</span>
-    <h2>Conjuntos de anuncios</h2>
-    <div class="slide-content" contenteditable="true"><ul>${list}</ul></div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide3(e){
+  const li=(e||[]).map(x=>`<li><div><strong>${x.nombre}</strong><br>Objetivo: ${x.objetivo||'—'} · Audiencia: ${x.audiencia||'—'}<br><span style="font-size:12px;color:var(--text-dim)">Presupuesto: ${x.presupuesto||'—'} · Formato: ${x.formato||'—'}</span></div></li>`).join('');
+  return`<div class="slide"><span class="slide-num">03/06</span><span class="slide-tag amber">Estructura</span><h2>Conjuntos de anuncios</h2><div class="slide-content" contenteditable="true"><ul>${li}</ul></div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-function buildSlide4(angulos) {
-  const list = (angulos || []).map(a => `
-    <li>
-      <div>
-        <strong>${a.angulo}</strong><br>
-        <span style="color:var(--accent-light)">Título:</span> ${a.ejemplo_titulo || '—'}<br>
-        <span style="color:var(--text-dim);font-size:13px">${a.ejemplo_texto || ''}</span><br>
-        <span style="font-size:12px;background:var(--accent-dim);color:var(--accent-light);padding:2px 10px;border-radius:100px;display:inline-block;margin-top:4px">CTA: ${a.cta || '—'}</span>
-      </div>
-    </li>`).join('');
-  return `<div class="slide">
-    <span class="slide-num">04 / 06</span>
-    <span class="slide-tag purple">Copy & Creatividades</span>
-    <h2>Ángulos y propuestas de copy</h2>
-    <div class="slide-content" contenteditable="true"><ul>${list}</ul></div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide4(a){
+  const li=(a||[]).map(x=>`<li><div><strong>${x.angulo}</strong><br><span style="color:var(--accent-light)">Título:</span> ${x.ejemplo_titulo||'—'}<br><span style="font-size:13px;color:var(--text-dim)">${x.ejemplo_texto||''}</span><br><span style="font-size:12px;background:var(--accent-dim);color:var(--accent-light);padding:2px 10px;border-radius:100px;display:inline-block;margin-top:4px">CTA: ${x.cta||'—'}</span></div></li>`).join('');
+  return`<div class="slide"><span class="slide-num">04/06</span><span class="slide-tag purple">Copy & Creatividades</span><h2>Ángulos de copy</h2><div class="slide-content" contenteditable="true"><ul>${li}</ul></div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-function buildSlide5(kpis) {
-  const list = (kpis || []).map(k => `
-    <li><div><strong>${k.metrica}</strong>: ${k.objetivo || '—'} <span style="font-size:12px;color:var(--text-dim)">(${k.frecuencia || ''})</span></div></li>`).join('');
-  return `<div class="slide">
-    <span class="slide-num">05 / 06</span>
-    <span class="slide-tag coral">KPIs & Métricas</span>
-    <h2>Indicadores de éxito</h2>
-    <div class="slide-content" contenteditable="true"><ul>${list}</ul></div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide5(k){
+  const li=(k||[]).map(x=>`<li><div><strong>${x.metrica}</strong>: ${x.objetivo||'—'} <span style="font-size:12px;color:var(--text-dim)">(${x.frecuencia||''})</span></div></li>`).join('');
+  return`<div class="slide"><span class="slide-num">05/06</span><span class="slide-tag coral">KPIs</span><h2>Indicadores de éxito</h2><div class="slide-content" contenteditable="true"><ul>${li}</ul></div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-function buildSlide6(recomendaciones, pasos) {
-  const recList = (recomendaciones || []).map(r => `<li>${r}</li>`).join('');
-  const pasoList = (pasos || []).map((p,i) => `<li><strong>${i+1}.</strong> ${p}</li>`).join('');
-  return `<div class="slide">
-    <span class="slide-num">06 / 06</span>
-    <span class="slide-tag green">Recomendaciones</span>
-    <h2>Próximos pasos</h2>
-    <div class="slide-content" contenteditable="true">
-      <strong>Recomendaciones:</strong>
-      <ul style="margin-bottom:16px">${recList}</ul>
-      <strong>Próximos pasos:</strong>
-      <ul>${pasoList}</ul>
-    </div>
-    <button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button>
-  </div>`;
+function buildSlide6(r,p){
+  return`<div class="slide"><span class="slide-num">06/06</span><span class="slide-tag green">Recomendaciones</span><h2>Próximos pasos</h2><div class="slide-content" contenteditable="true"><strong>Recomendaciones:</strong><ul style="margin-bottom:16px">${(r||[]).map(x=>`<li>${x}</li>`).join('')}</ul><strong>Próximos pasos:</strong><ul>${(p||[]).map((x,i)=>`<li><strong>${i+1}.</strong> ${x}</li>`).join('')}</ul></div><button class="slide-copy" onclick="copySlide(this)">⎘ Copiar</button></div>`;
 }
-
-// ─── COPY / EXPORT ─────────────────────────────────────
-function copySlide(btn) {
-  const content = btn.previousElementSibling.innerText;
-  navigator.clipboard.writeText(content).then(() => showToast('Slide copiado ✓'));
-}
-
-function copyAll() {
-  const slides = document.querySelectorAll('.slide-content');
-  const text = Array.from(slides).map((s, i) => `=== SLIDE ${i+1} ===\n${s.innerText}`).join('\n\n');
-  navigator.clipboard.writeText(text).then(() => showToast('Estrategia completa copiada ✓'));
-}
-
-function printStrategy() {
-  window.print();
-}
-
-// ─── HELPERS ───────────────────────────────────────────
-function getRubroLabel(r) {
-  const map = { odontologia:'Odontología', estetica:'Medicina estética', cirugia:'Cirugía plástica', implantes:'Implantología', otro:'Clínica genérica' };
-  return map[r] || r;
-}
-
-function setGenerating(v) {
-  const btn = document.getElementById('generate-btn');
-  btn.disabled = v;
-  btn.innerHTML = v ? '<div class="spinner"></div> Generando...' : '✦ Generar estrategia';
-}
-
-function showError(msg) {
-  const box = document.getElementById('error-box');
-  box.textContent = '⚠ ' + msg;
-  box.classList.add('show');
-}
-function hideError() {
-  document.getElementById('error-box').classList.remove('show');
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
-// ─── PRINT STYLES ──────────────────────────────────────
-const printCSS = document.createElement('style');
-printCSS.media = 'print';
-printCSS.textContent = `
-body{background:#fff;color:#111}
-.header,.hero,.card,.regen-card{display:none}
-.slide{border:1px solid #ddd;break-inside:avoid;margin-bottom:16px;background:#fff}
-.slide-content{color:#333}
-.btn,.slide-copy{display:none}
-`;
-document.head.appendChild(printCSS);
+function copySlide(btn){navigator.clipboard.writeText(btn.previousElementSibling.innerText).then(()=>showToast('Copiado ✓'))}
+function copyAll(){navigator.clipboard.writeText(Array.from(document.querySelectorAll('.slide-content')).map((s,i)=>`=== SLIDE ${i+1} ===\n${s.innerText}`).join('\n\n')).then(()=>showToast('Todo copiado ✓'))}
+function setGenerating(v){const b=document.getElementById('generate-btn');b.disabled=v;b.innerHTML=v?'<div class="spinner"></div> Generando...':'✦ Generar estrategia'}
+function showError(msg){const b=document.getElementById('error-box');b.textContent='⚠ '+msg;b.classList.add('show')}
+function hideError(){document.getElementById('error-box').classList.remove('show')}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 </script>
 </body>
 </html>
