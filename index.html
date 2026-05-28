@@ -257,7 +257,7 @@ async function generateStrategy(){
     const response=await fetch('/api/generate',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-3-5-sonnet-20241022',max_tokens:4000,messages:[{role:'user',content:[...apiMessages,{type:'text',text:textContent}]}]})
+      body:JSON.stringify({model:'claude-3-haiku-20240307',max_tokens:4000,messages:[{role:'user',content:[...apiMessages,{type:'text',text:textContent}]}]})
     });
     setProgress(80,'Construyendo estrategia...');
     const data=await response.json();
